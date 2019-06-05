@@ -5,32 +5,37 @@
 #include <string>
 using namespace std;
 
-/* A palindrome is a string that reads the same both forward and backward. For example, the
-string "madam" is a palindrome. Write a program that uses a recursive function to check whether 
-a string is a palindrome. Your program must contain a value-returning function that returns 
-true if the string is a palindrome and false otherwise. Do not use any global variables, use the 
-appropriate parameters. */
-
 bool isPalindrome(string, int, int);
 
 int main() {
 
 	string str;
-	cout << "Palindrome Checker\n";
-	cout << "Enter a string to check whether it is a palindrome: ";
-	cin >> str;
+	string looptest = "y";
+	cout << "Palindrome Checker\n\n";
 
-	int pos = 0;						// position
-	int end = str.length() - 1;			// end position of string array
-	
-	for (int i = 0; i <= end; i++)		// if string contains uppercase letters, convert to lowercase
-		str[i] = tolower(str[i]);		// isPalindrome will not recognize uppercase and lowercase as the same char
-	
-	cout << endl;
-	if (isPalindrome(str, pos, end) == 1)
-		cout << "The string \"" << str << "\" is a palindrome.\n";
-	else
-		cout << "The string \"" << str << "\" is not a palindrome.\n";
+	do {
+		cout << "Enter a string to check whether it is a palindrome: ";
+		cin >> str;
+
+		int pos = 0;						// position
+		int end = str.length() - 1;			// end position of string array
+
+		for (int i = 0; i <= end; i++)		// if string contains uppercase letters, convert to lowercase
+			str[i] = tolower(str[i]);		// isPalindrome will not recognize uppercase and lowercase as the same char
+
+		if (isPalindrome(str, pos, end) == 1)
+			cout << "The string \"" << str << "\" is a palindrome.\n";
+		else
+			cout << "The string \"" << str << "\" is not a palindrome.\n";
+
+		// ask if user would like to check another string
+		cout << "Check another string? (y)es or (n)o: ";
+		cin >> looptest;
+		cout << endl;
+
+	} while (looptest != "n");
+
+	cout << "Exiting program.\n";
 
 	system("pause");
 	return 0;
