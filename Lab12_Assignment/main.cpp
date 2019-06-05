@@ -22,12 +22,10 @@ int main() {
 
 	int pos = 0;						// position
 	int end = str.length() - 1;			// end position of string array
-
-	for (str; pos < end; pos++)			// if string contains uppercase letters, convert to lowercase
-		str[pos] = tolower(str[pos]);	// isPalindrome will not recognize uppercase and lowercase as the same char
 	
-	//isPalindrome(str, pos, end);
-
+	for (int i = 0; i <= end; i++)		// if string contains uppercase letters, convert to lowercase
+		str[i] = tolower(str[i]);		// isPalindrome will not recognize uppercase and lowercase as the same char
+	
 	cout << endl;
 	if (isPalindrome(str, pos, end) == 1)
 		cout << "The string \"" << str << "\" is a palindrome.\n";
