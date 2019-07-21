@@ -42,11 +42,13 @@ int main() {
 }
 
 bool isPalindrome(string s, int p, int e) {
-	if (p > e)						// base case
-		return false;
-	else if (s[p] == s[e]) {		// check if the first element is the same as the last
-		isPalindrome(s, p+1, e-1);
+	if (p > e)				// base case 1
 		return true;
+	if (p == e) {			// base case 2
+		return true;
+	}
+	else if (s[p] == s[e]) {	
+		return isPalindrome(s, p + 1, e - 1);
 	}
 	return false;
 }
